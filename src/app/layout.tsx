@@ -1,24 +1,39 @@
+import AppNavBar from "@/components/AppNavBar";
+import { RootProviders } from "@/providers/RootProvider";
+import clsx from "clsx";
 import type { Metadata } from "next";
-import { Providers } from "@/components/shared/Providers";
-import { Navbar } from "@/components/shared/Navbar";
+import { DM_Sans } from "next/font/google";
+import "./globals.css";
+
+const font = DM_Sans({
+  subsets: ["latin"],
+  variable: "--font-primary",
+});
 
 export const metadata: Metadata = {
-  title: "Marketplace",
-  description: "",
+  title: "Stacks Game",
+  description: "Simple single player stacks game",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="en">
-      <body style={{ paddingBottom: "100px" }}>
-        <Providers>
-          <Navbar />
-          {children}
-        </Providers>
+    <html lang="en" suppressHydrationWarning>
+      <body className={clsx(font.className, "overflow-hidden")}>
+        <RootProviders>
+          <main
+            className={clsx(
+              "flex flex-col h-svh text-foreground bg-background font-sans",
+              font.variable
+            )}
+          >
+            <AppNavBar />
+            <div className="container mx-auto flex-1">{children}</div>
+          </main>
+        </RootProviders>
       </body>
     </html>
   );
