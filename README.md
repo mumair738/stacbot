@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 ## Getting Started
 
@@ -22,3 +23,6 @@ To learn more about Next.js, take a look at the following resources:
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
 ## Deploy on Vercel
+=======
+# stacbot
+>>>>>>> f127901fa4d3a206cc6da189274b25b0047c2279
